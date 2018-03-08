@@ -5,5 +5,5 @@ php: 7.1
 before_script:
     - composer install
 
-script:
-    - ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/EmailTest
+    - docker run --rm -v $PWD:/app phpqa/php-cs-fixer fix --show-progress=estimating --verbose .
+    - docker run --rm -v $PWD:/app phpqa/security-checker security:check
