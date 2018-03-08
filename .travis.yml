@@ -4,3 +4,10 @@ php: 7.1
     
 script:
     - docker run --rm -v $PWD:/app phpqa/php-cs-fixer fix --show-progress=estimating --verbose .
+
+notifications:
+    email:
+        recipients:
+            - l.guibert@hotmail.fr
+        on_success: never
+        on_failure: always
