@@ -1,8 +1,6 @@
 language: php
 
-php: 
-    - 7.0
-    - 7.1
+php: 5.6
     
 script:
     - docker run --rm -v $PWD:/app phpqa/php-cs-fixer fix --show-progress=estimating --verbose .
