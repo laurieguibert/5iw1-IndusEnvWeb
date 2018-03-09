@@ -1,14 +1,19 @@
 language: php
-
 php: 5.6
-    
 script:
-    - docker run --rm -v $PWD:/app phpqa/php-cs-fixer fix --show-progress=estimating --verbose .
-    - docker run --rm -v $PWD:/app phpqa/security-checker security:check
-
+- docker run --rm -v $PWD:/app phpqa/php-cs-fixer fix --show-progress=estimating --verbose
+  .
+- docker run --rm -v $PWD:/app phpqa/security-checker security:check
 notifications:
-    email:
-        recipients:
-            - l.guibert@hotmail.fr
-        on_success: never
-        on_failure: always
+  email:
+    recipients:
+    - l.guibert@hotmail.fr
+    on_success: never
+    on_failure: always
+deploy:
+  provider: heroku
+  api_key:
+    secure: kow9wPHABN/sfG1qO3XRjnJizKz/HoEZpb+bGTL0fa6bAja/AwQZpHihX889gGlzK9gBOM/cmPTDD9VfUVomTdOh1KUwA+fZzd0NmXwyvSTa0vw8GGMrNtqNo1u9OWkuqWn6m2qTS52mZJA/r8P+Pu2i8A1xpuOYeYTb+d3DZyn1f+3zK8twjbu9w+mEIROJsI8xYAkA8ufPFqi6iCqsFgnwuF6/sqq+XAgNOxrpKFVFJPCoc7SV6wg7+x8pGiIq2rsI4zFQIip2Agsgvm5peDoZdWd29SXSRHSOGe5mdc3rtuBOT4DHfUO+ow5E9J7ehchO0d5ZqJCihfbHsHnCsOZtdv5I+pYxQ5q+sveUZ+d7nYMxz6Th3XVYc8BFOw+KoiGIoJuzldXMpczc/cRPhBVbYtPDgyei/yXuZpeUm0xg6kOTPf74OJoG9PDms+DlJeE/+0sJdLco3OcBIvczXlQSuPEcEMS16+11b3EM+GuZKkqFqS9eOcVI8rYfmmPHZXvalS9z87H4nNHIjDMhwvy6YJ3BGBls/sGRTJ3MGPmZAvNUlteNL72Rv2geG64+pjqIkzQFVWvicg9IrpdELn6v7VF24M8NjUrQMQF776hsW7oMra/xqeIyAK9Fda+y9L5ZVQ60Pb5wmgon1ILCxSL0O/4CtlanWbYRaiTdimM=
+  app: 5iw1-IndusEnvWeb
+  on:
+    repo: laurieguibert/5iw1-IndusEnvWeb
