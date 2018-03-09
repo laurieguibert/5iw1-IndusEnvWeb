@@ -10,6 +10,9 @@ notifications:
     - l.guibert@hotmail.fr
     on_success: never
     on_failure: always
+  slack:
+    rooms:
+      secure: VL8BC9lCt6LVDNU0zC/dZbR/bhrt1NsRSSRh4dYeQQvyLOm7NPEESI7X983NJiUZRoHbY8UDdQ2VXIJmaYuetvXtP5pnIZ6CNbxUjy3/OgUmMzfp4F0G95VgQIPjsY9zapevIKSW6mMMdfUyUIVsvjP6Fp26b1JWoQ3Q2/jRVk6NIJzjwCDukrJ/TQfPJQagqBmAPQlkTuc8vEB+CDnWoK8hAKfk9IMj5WlT6z/B+hq6HRhgIyqWZ51eswIrGmxbpolDCzW1LXUh+vMfb1pmttxyxA3kFhcBhuhf2TBREC5MGXVEGLBsLqhezCSyOScEzW5sqr+eQle/qQKeNR7OvXN8m1L4FpN/B43PllE2el/B1kkSrApa5+W/yLdWcDtD4QiQW3Z+5AkC1D2mGfwjA72H04T50EhkvcfAl4IKyewc8MfAjdVLYrVtZNUEKP8VW0evSnnWK1x8SoTbdhWw6ErXDPu8uB0HhHTMMoB4dUtgLzefayI8C9opMHbhrgcHqO+/4nTos4CGrRjGq2mKvSBFQdDJs+abYAWbLyUM7wue3XjLuOd2+r3UZ+b1qFWXghFgcRp2YFN8/FEJ0Wm7e+6a02528HgcihFYqd0YB9yPbPwzG2jXmB9d6VF0VbJhsM1HrEhThwzLODYaeoR/SKVWR03O2/8iBgqe/QgjgVk=
 deploy:
   provider: heroku
   api_key:
