@@ -1,0 +1,22 @@
+language: php
+php: 5.6
+script:
+- docker run --rm -v $PWD:/app phpqa/php-cs-fixer fix --show-progress=estimating --verbose
+  .
+- docker run --rm -v $PWD:/app phpqa/security-checker security:check
+notifications:
+  email:
+    recipients:
+    - l.guibert@hotmail.fr
+    on_success: never
+    on_failure: always
+  slack:
+    rooms:
+      secure: VL8BC9lCt6LVDNU0zC/dZbR/bhrt1NsRSSRh4dYeQQvyLOm7NPEESI7X983NJiUZRoHbY8UDdQ2VXIJmaYuetvXtP5pnIZ6CNbxUjy3/OgUmMzfp4F0G95VgQIPjsY9zapevIKSW6mMMdfUyUIVsvjP6Fp26b1JWoQ3Q2/jRVk6NIJzjwCDukrJ/TQfPJQagqBmAPQlkTuc8vEB+CDnWoK8hAKfk9IMj5WlT6z/B+hq6HRhgIyqWZ51eswIrGmxbpolDCzW1LXUh+vMfb1pmttxyxA3kFhcBhuhf2TBREC5MGXVEGLBsLqhezCSyOScEzW5sqr+eQle/qQKeNR7OvXN8m1L4FpN/B43PllE2el/B1kkSrApa5+W/yLdWcDtD4QiQW3Z+5AkC1D2mGfwjA72H04T50EhkvcfAl4IKyewc8MfAjdVLYrVtZNUEKP8VW0evSnnWK1x8SoTbdhWw6ErXDPu8uB0HhHTMMoB4dUtgLzefayI8C9opMHbhrgcHqO+/4nTos4CGrRjGq2mKvSBFQdDJs+abYAWbLyUM7wue3XjLuOd2+r3UZ+b1qFWXghFgcRp2YFN8/FEJ0Wm7e+6a02528HgcihFYqd0YB9yPbPwzG2jXmB9d6VF0VbJhsM1HrEhThwzLODYaeoR/SKVWR03O2/8iBgqe/QgjgVk=
+deploy:
+  provider: heroku
+  api_key:
+    secure: kow9wPHABN/sfG1qO3XRjnJizKz/HoEZpb+bGTL0fa6bAja/AwQZpHihX889gGlzK9gBOM/cmPTDD9VfUVomTdOh1KUwA+fZzd0NmXwyvSTa0vw8GGMrNtqNo1u9OWkuqWn6m2qTS52mZJA/r8P+Pu2i8A1xpuOYeYTb+d3DZyn1f+3zK8twjbu9w+mEIROJsI8xYAkA8ufPFqi6iCqsFgnwuF6/sqq+XAgNOxrpKFVFJPCoc7SV6wg7+x8pGiIq2rsI4zFQIip2Agsgvm5peDoZdWd29SXSRHSOGe5mdc3rtuBOT4DHfUO+ow5E9J7ehchO0d5ZqJCihfbHsHnCsOZtdv5I+pYxQ5q+sveUZ+d7nYMxz6Th3XVYc8BFOw+KoiGIoJuzldXMpczc/cRPhBVbYtPDgyei/yXuZpeUm0xg6kOTPf74OJoG9PDms+DlJeE/+0sJdLco3OcBIvczXlQSuPEcEMS16+11b3EM+GuZKkqFqS9eOcVI8rYfmmPHZXvalS9z87H4nNHIjDMhwvy6YJ3BGBls/sGRTJ3MGPmZAvNUlteNL72Rv2geG64+pjqIkzQFVWvicg9IrpdELn6v7VF24M8NjUrQMQF776hsW7oMra/xqeIyAK9Fda+y9L5ZVQ60Pb5wmgon1ILCxSL0O/4CtlanWbYRaiTdimM=
+  app: iw1-indusenvweb
+  on:
+    repo: laurieguibert/5iw1-IndusEnvWeb

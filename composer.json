@@ -1,0 +1,9 @@
+{
+    "require": {
+        "php": "^5.6",
+        "phpunit/phpunit": "^5"
+    },
+    "require-dev": {
+        "phpro/grumphp": "^0.14.0"
+    }
+}
